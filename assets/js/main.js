@@ -1,5 +1,5 @@
 // Configura tu número de WhatsApp (solo dígitos, con país). Ej: 5491100000000
-const WHATSAPP_NUMBER = '5491100000000';
+const WHATSAPP_NUMBER = '5492226554855';
 
 function toggleMenu(){ document.getElementById('nav').classList.toggle('open'); }
 
