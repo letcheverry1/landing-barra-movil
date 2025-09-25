@@ -27,17 +27,15 @@ function updateWaLinks(){
   const a2 = document.getElementById('waFloat');
   if(a1) a1.href = href; if(a2) a2.href = href;
 }
-const formEl = document.getElementById('leadForm');
-['input','change'].forEach(evt=> formEl?.addEventListener(evt,updateWaLinks));
-updateWaLinks();
 
-// Mensaje de envío (Netlify) + fallback futuro (Formspree si lo activas)
+const formEl = document.getElementById('leadForm');
 const msgEl = document.getElementById('formMsg');
-formEl?.addEventListener('submit', async ()=>{
-  // Si estás en Netlify, deja que procese el form nativamente.
+formEl?.addEventListener('submit', ()=> {
   msgEl.textContent = 'Enviando…';
-  setTimeout(()=>{ msgEl.textContent = '¡Gracias! Te contactaremos a la brevedad.'; }, 1200);
+  // Formspree redirige o responde; este mensaje es solo feedback rápido
+  setTimeout(()=>{ msgEl.textContent = '¡Gracias! Te contactaremos a la brevedad.'; }, 1500);
 });
+
 
 // Año en footer
 document.getElementById('year').textContent = new Date().getFullYear();

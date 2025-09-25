@@ -227,9 +227,9 @@
       <h2>Contacto y reservas</h2>
       <p class="lead">Cuéntanos sobre tu evento y te respondemos con una propuesta en el día.</p>
       <div class="grid" style="grid-template-columns:1fr .9fr;align-items:start">
-        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="leadForm">
+        <form action="https://formspree.io/f/mjkakyzn" method="POST" id="leadForm">
           <!-- ⚠️ Si usas Formspree en GitHub Pages, comenta data-netlify y agrega action="https://formspree.io/f/XXXXX" -->
-          <input type="hidden" name="form-name" value="contacto">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <p style="display:none">
             <label>No completar <input name="bot-field" /></label>
           </p>
@@ -301,7 +301,7 @@
         <div style="display:flex;gap:14px">
           <a href="#top">Volver arriba ↑</a>
           <a href="#contacto">Reservar</a>
-          <a href="https://instagram.com/entredoscopas" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://instagram.com/entredscopas" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
     </div>
