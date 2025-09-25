@@ -18,15 +18,19 @@ function buildWaLink(){
   const tipo   = document.getElementById('tipo')?.value || '';
   const fecha  = document.getElementById('fecha')?.value || '';
   const invitados = document.getElementById('invitados')?.value || '';
-  const msg = encodeURIComponent(`Hola, soy ${nombre}. Quiero cotizar una barra móvil para ${tipo}. Fecha: ${fecha}. Invitados: ${invitados}. Vengo desde la web.`);
+  const msg = encodeURIComponent(
+    `Hola, soy ${nombre}. Quiero cotizar una barra móvil para ${tipo}. Fecha: ${fecha}. Invitados: ${invitados}. Vengo desde la web.`
+  );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 function updateWaLinks(){
   const href = buildWaLink();
   const a1 = document.getElementById('ctaWhatsApp');
   const a2 = document.getElementById('waFloat');
-  if(a1) a1.href = href; if(a2) a2.href = href;
+  if(a1) a1.href = href;
+  if(a2) a2.href = href;
 }
+
 
 const formEl = document.getElementById('leadForm');
 const msgEl = document.getElementById('formMsg');
@@ -177,3 +181,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
     bar.style.width = p + '%';
   }, {passive:true});
 })();
+
+// Forzar actualización de enlaces al cargar la página
+document.addEventListener('DOMContentLoaded', updateWaLinks);
