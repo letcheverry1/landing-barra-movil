@@ -1,0 +1,79 @@
+:root{
+  --bg:#0f172a;          /* slate-900 */
+  --card:#111827;        /* gray-900 */
+  --muted:#9ca3af;       /* gray-400 */
+  --text:#e5e7eb;        /* gray-200 */
+  --accent:#ef4444;      /* red-500 */
+  --accent-2:#f87171;    /* red-400 */
+  --border:#1f2937;      /* gray-800 */
+  --max:1100px;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1225);color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;border-radius:14px}
+.container{max-width:var(--max);margin-inline:auto;padding:0 20px}
+header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(10,15,30,.6);border-bottom:1px solid var(--border);z-index:40}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand .logo{font-size:26px}
+nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;border:1px solid var(--border);background:#121a2f;color:var(--text);transition:.2s;box-shadow:var(--shadow)}
+.btn:hover{transform:translateY(-1px);border-color:#2b354f}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#b91c1c);color:#ffffff;border:none}
+.btn.secondary{background:#10182b}
+.grid{display:grid;gap:24px}
+.hero{padding:56px 0 32px}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 12px}
+.hero p{color:var(--muted);max-width:640px;margin:0 0 22px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+.section{padding:56px 0}
+.section h2{font-size:clamp(24px,3.5vw,34px);margin:0 0 8px}
+.section p.lead{color:var(--muted);margin:0 0 24px}
+
+.card{background:linear-gradient(180deg,#10182b,#0e1527);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:20px}
+.pill{display:inline-block;font-size:12px;border:1px solid #26324b;background:#0b1428;padding:4px 10px;border-radius:999px;color:#a3b2d6}
+.list{padding:0 0 0 18px;margin:10px 0;color:#cbd5e1}
+.list li{margin:6px 0}
+
+/* Services */
+.services .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+/* Gallery */
+.gallery .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.gallery figure{margin:0;position:relative}
+.gallery figcaption{position:absolute;inset:auto 10px 10px 10px;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:12px;font-size:12px}
+
+/* Pricing */
+.pricing .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.price-card{position:relative}
+.price{font-size:28px;font-weight:800;margin:6px 0}
+.badge{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,var(--accent-2),#0ea5e9);color:#021018;padding:6px 10px;border-radius:999px;font-size:12px}
+.muted{color:var(--muted)}
+
+/* Contact */
+form{display:grid;gap:12px}
+.field{display:grid;gap:6px}
+label{font-size:14px;color:#cbd5e1}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0c1326;color:var(--text)}
+textarea{min-height:120px}
+
+footer{padding:34px 0;color:#9aa8c7;border-top:1px solid var(--border)}
+.credits{font-size:13px}
+
+/* Mobile nav */
+.menu-btn{display:none}
+@media (max-width:880px){
+  nav ul{display:none}
+  .menu-btn{display:inline-flex}
+  nav.open ul{display:flex;flex-direction:column;gap:12px;position:absolute;right:20px;top:72px;background:#0b1225;border:1px solid var(--border);padding:16px;border-radius:16px;box-shadow:var(--shadow)}
+}
+
+/* Floating WhatsApp */
+.wa{position:fixed;right:18px;bottom:18px;z-index:50}
+.wa a{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#002612;padding:14px 16px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(18,140,126,.45)}
