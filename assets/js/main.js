@@ -14,23 +14,44 @@ document.querySelectorAll('[data-type]').forEach(btn=>{
 
 // Construir link de WhatsApp (botón sección contacto + flotante)
 function buildWaLink(){
-  const nombre = document.getElementById('nombre')?.value || '';
-  const tipo   = document.getElementById('tipo')?.value || '';
+  const nombre = document.getElementById('nombre')?.value.trim();
+  const tipo   = document.getElementById('tipo')?.value.trim();
   const fecha  = document.getElementById('fecha')?.value || '';
   const invitados = document.getElementById('invitados')?.value || '';
+  
+  //Validación mínima
+  if(!nombre || !tipo){
+    return null; //sin datos suficientes
+  }
+    
+  
+  
   const msg = encodeURIComponent(
-    `Hola, soy ${nombre}. Quiero cotizar una barra móvil para ${tipo}. Fecha: ${fecha}. Invitados: ${invitados}. Vengo desde la web.`
+    `Hola, soy ${nombre}. Quiero cotizar una barra móvil para ${tipo}. Fecha: ${fecha || "a confirmar"}. Invitados: ${invitados || "a confirmar"}. Vengo desde la web.`
   );
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
+
 function updateWaLinks(){
   const href = buildWaLink();
-  const a1 = document.getElementById('ctaWhatsApp');
-  const a2 = document.getElementById('waFloat');
-  if(a1) a1.href = href;
-  if(a2) a2.href = href;
+  const btn1 = document.getElementById('ctaWhatsApp');
+  const btn2 = document.getElementById('waFloat');
+
+  if(href){
+    if(btn1){ btn1.href = href; btn1.classList.remove('disabled'); btn1.style.pointerEvents="auto"; }
+    if(btn2){ btn2.href = href; btn2.classList.remove('disabled'); btn2.style.pointerEvents="auto"; }
+  } else {
+    // Desactivar mientras no hay datos
+    if(btn1){ btn1.removeAttribute('href'); btn1.classList.add('disabled'); btn1.style.pointerEvents="none"; }
+    if(btn2){ btn2.removeAttribute('href'); btn2.classList.add('disabled'); btn2.style.pointerEvents="none"; }
+  }
 }
 
+// Ejecutar siempre que haya cambios en el form
+const leadForm = document.getElementById('leadForm');
+['input','change'].forEach(evt=>{
+  leadForm?.addEventListener(evt, updateWaLinks);
+});
 
 const formEl = document.getElementById('leadForm');
 const msgEl = document.getElementById('formMsg');
