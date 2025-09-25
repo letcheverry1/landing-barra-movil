@@ -12,7 +12,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:linear-gradient(180deg,var(--bg),#0b1225);color:var(--text)}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:linear-gradient(180deg,var(--bg),#000);color:var(--text)}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;height:auto;border-radius:14px}
 .container{max-width:var(--max);margin-inline:auto;padding:0 20px}
@@ -77,3 +77,23 @@ footer{padding:34px 0;color:#9aa8c7;border-top:1px solid var(--border)}
 /* Floating WhatsApp */
 .wa{position:fixed;right:18px;bottom:18px;z-index:50}
 .wa a{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#002612;padding:14px 16px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(18,140,126,.45)}
+
+/* === Enhancements — minimal, rápidos === */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+nav a.active { color: var(--accent); text-underline-offset: 4px; text-decoration: underline; }
+
+.input-error { border-color: #b91c1c; }
+.form-error { font-size: 12px; color: #fca5a5; margin-top: 4px; }
+.form-hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.8);
+  display: none; align-items: center; justify-content: center; padding: 24px; z-index: 70; }
+.lightbox.open { display: flex; }
+.lightbox img { max-width: min(100%, 1100px); height: auto; border-radius: 12px; }
+.lightbox button { position: absolute; top: 12px; right: 12px; border: 0; padding: 10px 12px;
+  border-radius: 999px; background: #111827; color: #fff; cursor: pointer; }
+
+.progress { position: fixed; top:0; left:0; height:3px; width:0%;
+  background: linear-gradient(90deg, var(--accent), #b91c1c); z-index: 80; }
