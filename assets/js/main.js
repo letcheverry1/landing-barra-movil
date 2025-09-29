@@ -34,16 +34,21 @@ function buildWaLink(){
 
 function updateWaLinks(){
   const href = buildWaLink();
-  const btn1 = document.getElementById('ctaWhatsApp');
-  const btn2 = document.getElementById('waFloat');
+  const btnForm = document.getElementById('ctaWhatsApp');
+  const btnFloat = document.getElementById('waFloat');
 
   if(href){
-    if(btn1){ btn1.href = href; btn1.classList.remove('disabled'); btn1.style.pointerEvents="auto"; }
-    if(btn2){ btn2.href = href; btn2.classList.remove('disabled'); btn2.style.pointerEvents="auto"; }
+    if(btnForm){ btnForm.href = href; btnForm.classList.remove('disabled'); btnForm.style.pointerEvents="auto"; }
   } else {
     // Desactivar mientras no hay datos
-    if(btn1){ btn1.removeAttribute('href'); btn1.classList.add('disabled'); btn1.style.pointerEvents="none"; }
-    if(btn2){ btn2.removeAttribute('href'); btn2.classList.add('disabled'); btn2.style.pointerEvents="none"; }
+    if(btnForm){ btnForm.removeAttribute('href'); btnForm.classList.add('disabled'); btnForm.style.pointerEvents="none"; }
+  }
+
+  if(btnFloat){
+    const staticMsg = encodeURIComponent ("Hola, quiero mas info. Vengo desde la web...");
+    btnFloat.href= `https://wa.me/${WHATSAPP_NUMBER}?text=${staticMsg}`;
+    btnFloat.classList.remove("disables");
+    btnFloat.style.pointerEvents= "auto";
   }
 }
 
